@@ -3,7 +3,7 @@
 In this module, you will learn how to implement HTTP Basic authentication in Spring Security. This module is designed for entry-level Java engineers utilizing the popular Spring Framework who are seeking knowledge on how to secure their applications.
 
 To go through this module you will need the following knowledge and skills:
-- Java 11 with Maven
+- Java 11 with Maven and cURL
 - An understading of Web Authentication
 - Hardware capable of running Java Code
 
@@ -29,6 +29,15 @@ In order to let Spring know to use HTTP Basic authentication, you must configure
 - Open SecConfig.java in your IDE / Editor
 - On line XXX add the following line of code: `http.httpBasic();`
 - Recompile and run the project using this command at the project's root:  `mvn spring-boot:run`
-- Access 
+- Navigate to http://localhost:8080/. Now you should get a 401 Error indicating you are not authorized to access this resource.
 
+With HTTP Basic authentication enabled, anytime a user tries to access one of the backend resources, a user must first provide their credentials for authentication, thus providing a basic layer of security for your project.
 
+Try to reaccess the endpoint by inputting the following command to your terminal: `curl http://localhost:8080/ -u "bob@user.com:12345"`
+
+If your curious what the Base64 Encoded credentials look like instead, type the following command in your terminal: 
+
+`curl http://localhost:8080/ -H "Authorization: Basic Ym9iQHVzZXIuY29tOjEyMzQ1`
+
+## Wrapping Up
+In this quick module you should have learned what HTTP Basic Authentication is and how to go about implementing it using java Spring. If you're curious about other authentication methods, try looking into Form-Based Authentication!
